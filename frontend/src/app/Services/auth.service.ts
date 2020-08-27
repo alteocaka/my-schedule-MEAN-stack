@@ -22,9 +22,11 @@ export class AuthService {
     )
   }
 
-  logut(){
+  logout(){
     this.removeSession();
     console.log('You have been logged out!');
+
+    this.router.navigateByUrl('/login');
   }
 
   getAccessToken(){
@@ -35,22 +37,40 @@ export class AuthService {
     return localStorage.getItem('x-refresh-token');
   }
 
+  getUserId(){
+    return localStorage.getItem('user-id');
+  }
+
   setAccessToken(accessToken: string){
     localStorage.setItem('x-access-token', accessToken);
   }
 
   setSession(userId: string, accessToken: string, refreshToken: string){
     localStorage.setItem('user-id', userId);
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refresh-Token', refreshToken);
+    localStorage.setItem('x-access-token', accessToken);
+    localStorage.setItem('x-refresh-token', refreshToken);
   }
 
   // For logout:
 
   removeSession(){
     localStorage.removeItem('user-id');
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refresh-Token');
+    localStorage.removeItem('x-access-token');
+    localStorage.removeItem('x-refresh-Token');
+  }
+
+  getNewAccessToken(){
+    return this.http.get(`${this.service.URL}/users/me/access-token`, {
+      headers: {
+        'x-refresh-token': this.getRefreshToken(),
+        '_id': this.getUserId()
+      },
+      observe: 'response'
+    }).pipe(
+      tap((res: HttpResponse<any>) => {
+        this.setAccessToken(res.headers.get('x-access-token'));
+      })
+    )
   }
 
 }
