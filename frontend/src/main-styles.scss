@@ -1,0 +1,48 @@
+// Google fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@400;700&display=swap');
+
+// Main colors
+$orangeExtraLight: #ffc895;
+$orangeLight: #ffa958;
+$orangeDark: #ff8b1e;
+$orange: #ff9d42;
+
+
+$light: #f8f8f8;
+
+// Updating Bulma styles
+
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $orange;
+$link: $orangeLight;
+
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Global styles
+
+html{
+    background: linear-gradient(to right top, $orangeLight, $orange);
+}
+
+html, body{
+    height: 100%;
+}
+
+.centered-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.title{
+    font-family: 'Lato';
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
