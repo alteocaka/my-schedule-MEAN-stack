@@ -64,7 +64,9 @@ exports.updateList = async (req, res) => {
         List.findOneAndUpdate({ _id: req.params.id, _userId: req.user_id }, {
             $set: req.body
         }).then(() => {
-            res.sendStatus(200);
+            res.sendStatus({
+                'message': 'List has been updated successfully!'
+            });
         });
     }
     catch (err) {

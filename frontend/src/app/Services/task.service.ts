@@ -14,6 +14,14 @@ export class TaskService {
     return this.service.post('lists', { title })
   }
 
+  deleteList(id:string){
+    return this.service.delete(`lists/${id}`)
+  }
+
+  editList(id: string, title:string){
+    return this.service.patch( `lists/${id}`, title);
+  }
+
   getAllLists(){
     return this.service.get('lists');
   }
@@ -32,5 +40,13 @@ export class TaskService {
     return this.service.patch(`lists/${task._listId}/tasks/${task._id}`, {
       completed: !task.completed
     });
+  }
+
+  deleteTask(listId: string, taskId: string){
+    return this.service.delete(`lists/${listId}/tasks/${taskId}`);
+  }
+
+  editTask(listId: string, taskId: string, title: string){
+    return this.service.patch(`lists/${listId}/tasks/${taskId}`, {title});
   }
 }

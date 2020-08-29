@@ -9,6 +9,9 @@ import { WebReqInterceptorService } from './Interceptors/web-req-interceptor.ser
 import { NewListComponent } from './Components/Pages/new-list/new-list.component';
 import { NewTaskComponent } from './Components/Pages/new-task/new-task.component';
 import { LoginPageComponent } from './Components/Pages/login-page/login-page.component';
+import { SignupPageComponent } from './Components/Pages/signup-page/signup-page.component';
+import { EditListComponent } from './Components/Pages/edit-list/edit-list.component';
+import { EditTaskComponent } from './Components/Pages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { LoginPageComponent } from './Components/Pages/login-page/login-page.com
     TaskViewComponent,
     NewListComponent,
     NewTaskComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SignupPageComponent,
+    EditListComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,
