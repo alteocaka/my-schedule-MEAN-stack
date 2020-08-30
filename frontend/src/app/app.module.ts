@@ -12,6 +12,7 @@ import { LoginPageComponent } from './Components/Pages/login-page/login-page.com
 import { SignupPageComponent } from './Components/Pages/signup-page/signup-page.component';
 import { EditListComponent } from './Components/Pages/edit-list/edit-list.component';
 import { EditTaskComponent } from './Components/Pages/edit-task/edit-task.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditTaskComponent } from './Components/Pages/edit-task/edit-task.compon
     LoginPageComponent,
     SignupPageComponent,
     EditListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
